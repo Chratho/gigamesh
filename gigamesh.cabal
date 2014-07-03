@@ -1,0 +1,36 @@
+name:                gigamesh
+version:             0.0-dev
+synopsis:            Implementation of genetic algorithm as described by Richard Dawkins in 'The Blind Watchmaker'
+license:             AllRightsReserved
+build-type:          Simple
+cabal-version:       >=1.16
+tested-With:         GHC==7.6.3
+
+flag devel
+  description: enable development mode (i.e. disable -Werror)
+  default: False
+
+executable gigamesh
+  default-language: Haskell2010
+
+  hs-source-dirs: src
+  main-is: Main.hs
+
+  ghc-options:  -Wall -fwarn-tabs -fwarn-incomplete-uni-patterns -fwarn-identities -fno-warn-unused-do-bind
+                -fwarn-deprecated-flags -fwarn-unrecognised-pragmas -funbox-strict-fields -threaded -rtsopts
+
+  if !flag(devel)
+    ghc-options: -Werror
+
+  build-depends :   base                        >= 4.6      && < 5
+                ,   bytestring                  >= 0.10.4   && < 0.11
+                ,   cairo                       >= 0.12.5   && < 0.13
+                ,   cmdargs                     >= 0.10     && < 0.11
+                ,   cassava                     >= 0.4      && < 0.5
+                ,   data-default                >= 0.5.3    && < 0.6
+                ,   directory                   >= 1.2.1    && < 1.3
+                ,   glade                       >= 0.12.5   && < 0.13
+                ,   gtk                         >= 0.12.5   && < 0.13
+                ,   random                      >= 1.0.1    && < 1.1
+                ,   unordered-containers        >= 0.2.4    && < 0.3
+                ,   vector                      >= 0.10     && < 0.11
