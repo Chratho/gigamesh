@@ -1,5 +1,5 @@
 name:                gigamesh
-version:             0.0-dev
+version:             0.1
 synopsis:            Implementation of an algorithm described by Richard Dawkins in 'The Blind Watchmaker'
 license:             AllRightsReserved
 build-type:          Simple

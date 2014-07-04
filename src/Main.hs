@@ -31,7 +31,7 @@ cmdLineCfg = cmdArgs $ CmdLineCfg
     , cfgGladeFile = "gigamesh.glade" &= name "glade-file" &= explicit &= typFile
                    &= help "path to glade file (default: 'gigamesh.glade')"
     } &= program "gigamesh"
-      &= summary "Implementation of genetic algorithm as described by Richard Dawkins in 'The Blind Watchmaker'"
+      &= summary "Gigamesh v0.1, (C) Christian Thomas 2014"
 
 -- | 'MVar' to access elder
 elder :: MVar (Morph a)
