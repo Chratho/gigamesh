@@ -9,7 +9,7 @@ import           Data.Default                       (def)
 import           Data.Maybe
 import           GHC.Generics                       (Generic)
 import           Graphics.UI.Gtk                    hiding (eventSent)
-import           System.Console.CmdArgs             (cmdArgs, help, name, typFile, (&=), summary, program, Typeable, Data)
+import           System.Console.CmdArgs             hiding (def)
 import           System.Directory                   (doesFileExist)
 import           System.IO.Unsafe
 
@@ -26,10 +26,12 @@ data CmdLineCfg = CmdLineCfg
 -- | Read command-line arguments
 cmdLineCfg :: IO CmdLineCfg
 cmdLineCfg = cmdArgs $ CmdLineCfg
-    { cfgCsvFile   = "db.csv" &= help "path to elder db file (default: 'db.csv')" &= name "csv-file" &= typFile
-    , cfgGladeFile = "gigamesh.glade" &= help "path to glade file (default: 'gigamesh.glade')" &= name "glade-file" &= typFile
+    { cfgCsvFile   = "db.csv" &= name "csv-file" &= explicit &= typFile
+                   &= help "path to elder db file (default: 'db.csv')"
+    , cfgGladeFile = "gigamesh.glade" &= name "glade-file" &= explicit &= typFile
+                   &= help "path to glade file (default: 'gigamesh.glade')"
     } &= program "gigamesh"
-      &= summary "implementation of genetic algorithm as described by Richard Dawkins in 'The Blind Watchmaker'"
+      &= summary "Implementation of genetic algorithm as described by Richard Dawkins in 'The Blind Watchmaker'"
 
 -- | 'MVar' to access elder
 elder :: MVar (Morph a)

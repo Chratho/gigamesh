@@ -1,6 +1,6 @@
 name:                gigamesh
 version:             0.0-dev
-synopsis:            Implementation of genetic algorithm as described by Richard Dawkins in 'The Blind Watchmaker'
+synopsis:            Implementation of an algorithm described by Richard Dawkins in 'The Blind Watchmaker'
 license:             AllRightsReserved
 build-type:          Simple
 cabal-version:       >=1.16
